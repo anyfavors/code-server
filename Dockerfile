@@ -10,6 +10,7 @@ RUN add-apt-repository -y ppa:ondrej/php
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y php8.0-cli php8.0-xdebug php-zip php-curl unzip php-mbstring php-xml php-sqlite3 php-intl php-bcmath
 RUN apt-get clean -y && apt-get autoclean -y 
+RUN echo "fs.inotify.max_user_watches=524288" | tee -a /etc/sysctl.conf
 
 
 EXPOSE 8443
