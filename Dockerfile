@@ -1,4 +1,4 @@
-FROM linuxserver/code-server:3.12.0-ls98
+FROM linuxserver/code-server:v3.12.0-ls98
 
 ENV HOME="/config"
 
