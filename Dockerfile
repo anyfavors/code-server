@@ -11,6 +11,8 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y php8.0-cli php8.0-xdebug php-zip php-curl unzip php-mbstring php-xml php-sqlite3 php-intl php-bcmath
 RUN apt-get clean -y && apt-get autoclean -y 
 RUN echo "fs.inotify.max_user_watches=524288" | tee -a /etc/sysctl.conf
-RUN truncate -s -$(tail 20 /etc/cont-init.d/30-config | wc -c) /etc/cont-init.d/30-config # permissions are not an issue where this is going.
+
+# permissions are not an issue where this is going.
+COPY 30-config /etc/cont-init.d/30-config  
 
 EXPOSE 8443
